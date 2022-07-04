@@ -46,11 +46,21 @@ add_shortcode('error_generator', function($atts){
 	//Syntax error.
 		elseif( $atts['type'] == 'SYNTAX' ){
 			eval('echo test.');
+		} 
+	
+	// invalid data type
+		elseif ( $atts['type'] == 'DATA' ){
+			acceptInt('x');
 		} else {
 			//do nothing
 		}
 
 	return ob_get_clean();
 });
+
+function acceptInt(int $arg){
+	//do nothing
+	$assign = $arg;
+}
 
 ?>
